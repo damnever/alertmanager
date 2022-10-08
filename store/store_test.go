@@ -62,7 +62,7 @@ func TestResolved(t *testing.T) {
 	resolved := makeAlert("a", now, -2, -1)
 	require.NoError(t, a.SetOrReplaceResolved(resolved))
 	require.NoError(t, a.SetOrReplaceResolved(resolved))
-	a.gc()
+	a.GC()
 	require.ErrorIs(t, a.SetOrReplaceResolved(resolved), ErrNotFound)
 
 	require.ErrorIs(t, a.DeleteIfResolved(resolved.Fingerprint()), ErrNotFound)
